@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background: Midnightblue;
+  background: linear-gradient(blue, black);
   color: whitesmoke;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
@@ -86,7 +86,7 @@ h2 {
 }
 
 #interests li {
-  color: #555;
+  color: black;
   font-size: 1rem;
   font-weight: 600;
   padding: 10px 20px;
@@ -175,7 +175,7 @@ nav h1 {
 
 /* Portfolio styles */
 .content h1 {
-  color: black;
+  color: white;
 }
 
 #portfolio {
@@ -198,7 +198,7 @@ nav h1 {
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
-  color: #444;
+  color: black;
   padding: 16px 20px;
   font-size: 1.1rem;
   font-weight: 500;
