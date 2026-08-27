@@ -2,6 +2,49 @@
   box-sizing: border-box;
 }
 
+/* Fullscreen background overlay */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black; /* Dark theme background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensures it stays on top of all content */
+  
+  /* Pure CSS Fade-out: Hides the loader automatically after 2.5 seconds */
+  animation: fadeOut 0.5s ease-in-out 2s forwards;
+  pointer-events: none; /* Allows users to click through once faded */
+}
+
+/* The spinning element */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid whitesmoke; /* Subtle track color */
+  border-top-color: midnightblue; /* Bright accent spinner color */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation for the spinning wheel */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation to smoothly hide the screen */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 body {
   margin: 0;
   background: linear-gradient(midnightblue, black);
