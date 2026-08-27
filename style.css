@@ -24,8 +24,8 @@
 .spinner {
   width: 50px;
   height: 50px;
-  border: 5px solid whitesmoke; /* Subtle track color */
-  border-top-color: midnightblue; /* Bright accent spinner color */
+  border: 5px solid black; /* Subtle track color */
+  border-top-color: whitesmoke; /* Bright accent spinner color */
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
