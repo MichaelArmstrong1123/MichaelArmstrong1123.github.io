@@ -42,7 +42,7 @@ createPlatform(600, 200, 150, 25, "")
 createCollectable("kennedi", 1350, 50);
 createCollectable("diamond", 200, 170, 0.5, 0.7);
 createCollectable("kennedi", 1000, 150);
-
+createCollectable("kennedi", 600, 150);
 
 
     
