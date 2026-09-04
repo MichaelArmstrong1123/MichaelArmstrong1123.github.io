@@ -3,6 +3,85 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+       background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/221808/sky.jpg');
+    color: linear-gradient(whitesmoke, gray);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.particle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Common Particle Styles */
+.particle {
+  position: absolute;
+  bottom: -20px; /* Start just below the viewport */
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: floatUp 12s infinite linear;
+}
+
+/* 
+   Staggering Individual Particles 
+   We vary horizontal position (left), size, delay, and opacity.
+*/
+.particle:nth-child(1)  { left: 10%; width: 8px;  height: 8px;  animation-delay: 0s;   animation-duration: 14s; }
+.particle:nth-child(2)  { left: 25%; width: 15px; height: 15px; animation-delay: 2s;   animation-duration: 18s; background: rgba(0, 225, 255, 0.4); box-shadow: 0 0 10px rgba(0, 225, 255, 0.5); }
+.particle:nth-child(3)  { left: 40%; width: 5px;  height: 5px;  animation-delay: 4s;   animation-duration: 10s; }
+.particle:nth-child(4)  { left: 55%; width: 12px; height: 12px; animation-delay: 1s;   animation-duration: 15s; }
+.particle:nth-child(5)  { left: 70%; width: 6px;  height: 6px;  animation-delay: 6s;   animation-duration: 12s; }
+.particle:nth-child(6)  { left: 85%; width: 18px; height: 18px; animation-delay: 3s;   animation-duration: 22s; background: rgba(230, 100, 250, 0.4); box-shadow: 0 0 10px rgba(230, 100, 250, 0.5); }
+.particle:nth-child(7)  { left: 15%; width: 10px; height: 10px; animation-delay: 7s;   animation-duration: 13s; }
+.particle:nth-child(8)  { left: 33%; width: 4px;  height: 4px;  animation-delay: 9s;   animation-duration: 9s;  }
+.particle:nth-child(9)  { left: 65%; width: 14px; height: 14px; animation-delay: 5s;   animation-duration: 16s; }
+.particle:nth-child(10) { left: 90%; width: 8px;  height: 8px;  animation-delay: 11s;  animation-duration: 11s; }
+.particle:nth-child(11) { left: 5%;  width: 12px; height: 12px; animation-delay: 4.5s; animation-duration: 17s; }
+.particle:nth-child(12) { left: 48%; width: 7px;  height: 7px;  animation-delay: 2.5s; animation-duration: 12s; }
+.particle:nth-child(13) { left: 78%; width: 16px; height: 16px; animation-delay: 8s;   animation-duration: 20s; }
+.particle:nth-child(14) { left: 22%; width: 5px;  height: 5px;  animation-delay: 12s;  animation-duration: 14s; }
+.particle:nth-child(15) { left: 60%; width: 9px;  height: 9px;  animation-delay: 0.5s; animation-duration: 15s; }
+
+/* The Core Animation Protocol */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1; /* Fade in quickly as it enters the screen */
+  }
+  50% {
+    /* Give particles a drifting/swaying effect horizontally halfway up */
+    transform: translateY(-50vh) translateX(30px) scale(1.2);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    /* Move past the top edge and fade out */
+    transform: translateY(-105vh) translateX(-20px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Foreground Content Positioning */
+.content {
+  position: relative;
+  z-index: 2; /* Ensures text is clickable and sits on top of particles */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #ffffff;
+}
+
 .loader-container {
   position: fixed;
   top: 0;
@@ -67,12 +146,6 @@
   }
 }
 
-body {
-    margin: 0;
-    background: linear-gradient(midnightblue, black);
-    color: linear-gradient(whitesmoke, gray);
-    font-family: "Helvetica Neue", Arial, sans-serif;
-}
 
 #all-contents {
   max-width: 1500px;
@@ -155,7 +228,7 @@ h2 {
   font-size: 1rem;
   font-weight: 600;
   padding: 10px 20px;
-  background: linear-gradient(135deg, black, midnightblue);
+  background: linear-gradient(135deg, black, cyan);
   border: 1px solid #ddd;
   border-radius: 100px;
   transition:
@@ -166,7 +239,7 @@ h2 {
 }
 
 #interests li:hover {
-  background: linear-gradient(135deg, black, midnightblue);
+  background: linear-gradient(135deg, black, cyan);
   color: whitesmoke;
   border-color: whitesmoke;
   transform: translateY(-2px);
@@ -199,7 +272,7 @@ nav {
   align-items: center;
   margin-bottom: 48px;
   padding: 16px 24px;
-  background: linear-gradient(135deg, black, midnightblue);
+  background: linear-gradient(135deg, black, cyan);
   border: 1px solid #e0e0e0;
   border-radius: 12px;
 }
@@ -234,10 +307,9 @@ nav h1 {
 }
 
 .nav-li a:hover {
-  background: midnightblue;
-  color: whitesmoke;
+  background: linear-gradient(135deg, black, cyan);
+  color: #fff;
 }
-
 /* Portfolio styles */
 .content h1 {
   color: white;
