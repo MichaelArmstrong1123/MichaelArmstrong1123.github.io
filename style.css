@@ -11,75 +11,74 @@ body {
 }
 
 .particle-container {
-  position: fixed;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Base style for particle layers */
+.particles {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
 }
 
-/* Common Particle Styles */
-.particle {
-  position: absolute;
-  bottom: -20px; /* Start just below the viewport */
-  background: rgba(255, 255, 255, 0.5);
+/* Layer 1: Small, slow-moving background particles */
+.layer-1 {
+  width: 2px;
+  height: 2px;
   border-radius: 50%;
-  animation: floatUp 12s infinite linear;
+  background: transparent;
+  /* Multi-layered shadows create multiple distinct spots from a single element */
+  box-shadow: 
+    15vw 10vh #ffffff, 35vw 45vh rgba(255,255,255,0.7), 75vw 20vh #ffffff,
+    85vw 70vh rgba(255,255,255,0.4), 25vw 80vh #ffffff, 60vw 55vh #ffffff,
+    45vw 90vh rgba(255,255,255,0.6), 90vw 10vh #ffffff, 10vw 60vh #ffffff;
+  animation: floatUp 25s linear infinite;
 }
 
-/* 
-   Staggering Individual Particles 
-   We vary horizontal position (left), size, delay, and opacity.
-*/
-.particle:nth-child(1)  { left: 10%; width: 8px;  height: 8px;  animation-delay: 0s;   animation-duration: 14s; }
-.particle:nth-child(2)  { left: 25%; width: 15px; height: 15px; animation-delay: 2s;   animation-duration: 18s; background: rgba(0, 225, 255, 0.4); box-shadow: 0 0 10px rgba(0, 225, 255, 0.5); }
-.particle:nth-child(3)  { left: 40%; width: 5px;  height: 5px;  animation-delay: 4s;   animation-duration: 10s; }
-.particle:nth-child(4)  { left: 55%; width: 12px; height: 12px; animation-delay: 1s;   animation-duration: 15s; }
-.particle:nth-child(5)  { left: 70%; width: 6px;  height: 6px;  animation-delay: 6s;   animation-duration: 12s; }
-.particle:nth-child(6)  { left: 85%; width: 18px; height: 18px; animation-delay: 3s;   animation-duration: 22s; background: rgba(230, 100, 250, 0.4); box-shadow: 0 0 10px rgba(230, 100, 250, 0.5); }
-.particle:nth-child(7)  { left: 15%; width: 10px; height: 10px; animation-delay: 7s;   animation-duration: 13s; }
-.particle:nth-child(8)  { left: 33%; width: 4px;  height: 4px;  animation-delay: 9s;   animation-duration: 9s;  }
-.particle:nth-child(9)  { left: 65%; width: 14px; height: 14px; animation-delay: 5s;   animation-duration: 16s; }
-.particle:nth-child(10) { left: 90%; width: 8px;  height: 8px;  animation-delay: 11s;  animation-duration: 11s; }
-.particle:nth-child(11) { left: 5%;  width: 12px; height: 12px; animation-delay: 4.5s; animation-duration: 17s; }
-.particle:nth-child(12) { left: 48%; width: 7px;  height: 7px;  animation-delay: 2.5s; animation-duration: 12s; }
-.particle:nth-child(13) { left: 78%; width: 16px; height: 16px; animation-delay: 8s;   animation-duration: 20s; }
-.particle:nth-child(14) { left: 22%; width: 5px;  height: 5px;  animation-delay: 12s;  animation-duration: 14s; }
-.particle:nth-child(15) { left: 60%; width: 9px;  height: 9px;  animation-delay: 0.5s; animation-duration: 15s; }
+/* Layer 2: Medium-sized, faster midground particles */
+.layer-2 {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 
+    20vw 30vh rgba(255,255,255,0.8), 50vw 15vh #ffffff, 80vw 65vh rgba(255,255,255,0.5),
+    40vw 75vh #ffffff, 70vw 35vh #ffffff, 10vw 85vh rgba(255,255,255,0.9);
+  animation: floatUp 18s linear infinite;
+}
 
-/* The Core Animation Protocol */
+/* Layer 3: Large, fast foreground particles */
+.layer-3 {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 
+    30vw 50vh #ffffff, 65vw 25vh rgba(255,255,255,0.6), 85vw 85vh #ffffff,
+    15vw 20vh rgba(255,255,255,0.5);
+  animation: floatUp 12s linear infinite;
+}
+
 @keyframes floatUp {
   0% {
-    transform: translateY(0) translateX(0) scale(1);
+    transform: translateY(0) translateX(0);
     opacity: 0;
   }
   10% {
-    opacity: 1; /* Fade in quickly as it enters the screen */
-  }
-  50% {
-    /* Give particles a drifting/swaying effect horizontally halfway up */
-    transform: translateY(-50vh) translateX(30px) scale(1.2);
+    opacity: 1;
   }
   90% {
     opacity: 1;
   }
   100% {
-    /* Move past the top edge and fade out */
-    transform: translateY(-105vh) translateX(-20px) scale(0.8);
+    /* Translates upward past the view boundary with a minor rightward sway */
+    transform: translateY(-100vh) translateX(50px);
     opacity: 0;
   }
-}
-
-/* Foreground Content Positioning */
-.content {
-  position: relative;
-  z-index: 2; /* Ensures text is clickable and sits on top of particles */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: #ffffff;
 }
 
 .loader-container {
