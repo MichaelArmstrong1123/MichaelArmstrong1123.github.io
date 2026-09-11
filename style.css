@@ -338,14 +338,14 @@ nav h1 {
   padding: 16px 20px;
   font-size: 1.1rem;
   font-weight: 500;
-  background: #fff;
+  background: cyan;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
 #portfolio a:hover {
-  background: #000;
+  background: linear-gradient(135deg, black, cyan);
   color: #fff;
   transform: translateX(4px);
 }
