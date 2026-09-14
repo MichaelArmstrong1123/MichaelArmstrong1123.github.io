@@ -271,8 +271,8 @@ nav {
   align-items: center;
   margin-bottom: 48px;
   padding: 16px 24px;
-  background: linear-gradient(135deg, black, cyan);
-  border: 1px solid #e0e0e0;
+  background: linear-gradient(145deg, black, cyan);
+  border: 1px solid whitesmoke;
   border-radius: 12px;
 }
 
