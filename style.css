@@ -240,7 +240,7 @@ h2 {
 }
 
 #interests li:hover {
-  background: linear-gradient(135deg, black, cyan);
+  background: linear-gradient(135deg, black, midnightblue);
   color: whitesmoke;
   border-color: whitesmoke;
   transform: translateY(-2px);
